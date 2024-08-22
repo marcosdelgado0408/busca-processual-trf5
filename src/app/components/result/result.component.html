@@ -1,0 +1,31 @@
+<div class="resultado-container" *ngIf="this.resultValues.processos.length > 0">
+    <ul style="list-style: none;">
+        <span>Resultado da Pesquisa: {{this.resultValues.processos.length}} encontrados</span>
+        <li *ngFor="let processo of this.resultValues.visibleProcessos">
+            <div class="processo-container">
+                <div class="processo">
+                    <a (click)="navigateToDetalhes(processo)">Processo n° : {{ processo.numero }}</a>
+                    <div class="processo-titulo">
+                        <p>{{ processo.primeiraParteAtiva?.nome }}</p>
+                        <p id="titulo-separator">|</p>
+                        <p>{{ processo.primeiraPartePassiva?.nome }}</p>
+                    </div>
+
+                    <div class="processo-ter-linha">
+                        <p>CPF: {{ processo.primeiraParteAtiva?.numeroDocumento }}</p>
+                        <p>Classe Judicial: {{ processo.classeJudicial.descricao }}</p>
+                    </div>
+
+                    <div class="processo-qua-linha">
+                        <p>Seção: RN</p>
+                        <p>Grau: 2</p>
+                        <p>Instância: {{ processo.instancia }}</p>
+                        <p>Última Movimentação: {{ transformToArray(processo.movimentacoes[0].data)| dateFormat}}</p>
+                    </div>
+                </div>
+                <button (click)="navigateToDetalhes(processo)">Mais Detalhes</button>
+            </div>
+        </li>
+    </ul>
+    <button id="ver-mais" *ngIf="this.resultValues.visibleProcessos.length < this.resultValues.processos.length" (click)="carregarMaisProcessos()">Ver Mais</button>
+</div>

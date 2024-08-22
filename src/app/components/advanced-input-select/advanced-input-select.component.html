@@ -1,0 +1,6 @@
+<div class="input-select-wrapper">
+    <label [for]="labelSelectName">{{ label }}</label>
+    <select #selectElement class="custom-select" name="{{selectName}}" id="{{selectId}}" (input)="onInput($event)">
+        <option *ngFor="let option of options" [value]="option.value">{{ option.display }}</option>
+    </select>
+</div>

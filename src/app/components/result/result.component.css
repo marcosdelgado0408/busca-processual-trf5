@@ -1,0 +1,111 @@
+ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+    margin: auto;
+}
+
+span {
+    margin-top: 15px;
+}
+
+li {
+    margin-top: 10px;
+}
+
+.resultado-container {
+    padding-bottom: 10px;
+}
+
+.processo-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 10px;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: rgba(248, 248, 248, 1);
+    width: 55vw;
+}
+
+a {
+    color: rgba(0, 123, 255, 1);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.processo {
+    width: 70%;
+}
+
+.processo p {
+    font-size: 15px;
+    margin: 3px 0;
+}
+
+.processo-titulo {
+    display: flex;
+    align-items: baseline;
+}
+
+.processo-titulo p {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#titulo-separator {
+    font-size: 25px;
+}
+
+.processo-ter-linha {
+    display: flex;
+}
+
+.processo-ter-linha p {
+    margin-right: 20px;
+    font-size: 15px;
+}
+
+.processo-qua-linha {
+    display: flex;
+}
+
+.processo-qua-linha p {
+    margin-right: 30px;
+    font-size: 15px;
+}
+
+.processo-container button {
+    margin-left: 50px;
+    height: 37px;
+    width: 140px;
+    font-size: 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    background-color: #334B6A;
+    color: white;
+}
+
+.processo-container button:hover {
+    color: black;
+    background-color: white;
+}
+
+#ver-mais {
+    margin: 50px auto;
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #334B6A;
+    border-radius: 5px;
+    background-color: #334B6A;
+    color: white;
+    cursor: pointer;
+}
+
+#ver-mais:hover {
+    background-color: white;
+    color: #334B6A;
+}

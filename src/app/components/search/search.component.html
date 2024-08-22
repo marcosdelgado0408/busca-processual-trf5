@@ -1,0 +1,65 @@
+<main>
+    <div class="sidebar-container">
+        <button class="toggle-sidebar-button" (click)="toggleSidebar()">
+            <mat-icon>{{ sidebarVisible ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+        </button>
+    
+        <div *ngIf="sidebarVisible" class="sidebar">
+            <h2>Filtro</h2>
+            <div class="filter-group">
+                <label for="process-length">Quantidade de Processos:</label>
+                <select id="process-length" [(ngModel)]="processoLength">
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                </select>
+
+                <label for="processos-por-pagina">Quantidade de registros por página:</label>
+                <input matInput type="number" [(ngModel)]="quantidadePorPagina" min="1" max="100" step="1">
+            
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="search-bar">
+        <h1>Busca Processual Unificada</h1>
+
+        <div class="erro">
+            <div #erroNenhumProcessoEncontrado *ngIf="nenhumProcessoEncontrado == true">
+                <p>Nenhum processo encontrado</p>
+                <button (click)="fecharDiv()">Fechar x</button>
+            </div>
+        </div>
+
+        <div class="progress-bar-container" *ngIf="showProgress == true">
+            <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+        </div>
+        <div class="search-components-wrapper">
+            <div class="form">
+                <div class="search-container">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Digite nome, cpf, cnpj ou numero do processo</mat-label>
+                        <input matInput [matAutocomplete]="auto" [(ngModel)]="searchValue" (input)="onChange($event)"
+                            (keydown.enter)="updateSuggestion(); onSearch();" #searchInput>
+                        <mat-icon matSuffix>search</mat-icon>
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions" [value]="option">
+                                {{ option }}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div class="search-bar-buttons">
+                    <button (click)="clearSearch()">Limpar</button>
+                    <button id="btn-consultar" (click)="onSearch()">Consultar</button>
+                    <button routerLink="/pesquisa-avancada">Pesquisa Avançada</button>
+                </div>
+            </div>
+            <div id="matTooltip" [matTooltip]="tooltipMessage" class="icon">?</div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,17 @@
+.input-select-wrapper {
+    display: flex;
+    flex-direction: column;        
+    margin:8px 0;    
+}
+
+.custom-select {
+    height: 100%;
+    border-radius: 5px;
+    border: 2px solid #A9A9A9;
+    height: 3.9vh;
+    width: 12vw;    
+    cursor: pointer;
+}
+label{
+    margin: 10px 0;
+}

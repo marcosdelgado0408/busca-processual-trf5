@@ -1,0 +1,186 @@
+main {
+    display: flex;
+    align-items: flex-start;
+}
+
+.sidebar-container {
+    position: absolute;
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start;
+    transition: width 0.3s ease; /* Animação suave para abertura e fechamento */
+}
+
+.toggle-sidebar-button {
+    background-color: #8F8B8B;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 5px; /* Distância entre o botão e a barra lateral */
+    margin-left: 5px;
+    transition: margin-left 0.3s ease; /* Animação suave para o botão */
+}
+
+.toggle-sidebar-button mat-icon {
+    font-size: 24px;
+}
+
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: #8F8B8B;
+    border-radius: 5px;
+    transition: transform 0.3s ease; /* Animação suave para a barra lateral */
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.filter-group select {
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.filter-group input{
+    width: 25%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+
+
+
+.erro div {
+    display: flex;
+    align-items: first baseline;
+    border: 2px solid #ff0000;
+    border-radius: 7px;
+    padding: 10px;
+    padding-bottom: 0;
+    margin-right: 33.3%;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.erro div p {
+    color: red;
+}
+
+.erro div button {
+    margin-left: 58%;
+    height: 30px;
+    width: 80px;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    background-color: red;
+    cursor: pointer;
+}
+
+.progress-bar-container {
+    width: 100%;
+    border-radius: 5px;
+}
+
+mat-progress-bar {
+    margin: 20px 0;
+    height: 20px;
+    background-color: #f5f5f5;
+}
+
+mat-progress-bar::ng-deep .mat-progress-bar-fill {
+    background-color: #06601A;
+}
+.search-components-wrapper{
+    display: flex;    
+}
+.form{
+    display:flex;
+    flex-direction: column;
+    align-items: end;
+}
+.icon {
+    width: 35px;
+    height: 35px;
+    background-color: #FFC107;
+    color: #000000;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top:10px;
+}
+
+.search-bar {
+    margin-top: 5%;
+    margin-left: 20%;
+}
+
+.search-bar h1 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar mat-form-field {
+    width: 800px;
+}
+
+#matTooltip {
+    margin-bottom: 22px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.search-bar-buttons {
+    margin-left: 21%;
+}
+
+.search-bar-buttons button {
+    height: 42px;
+    width: 175px;
+    margin-left: 10px;
+    color: #334B6A;
+    font-size: 18px;
+    border-radius: 7px;
+    border-color: #334B6A;
+    background-color: white;
+    cursor: pointer;
+}
+
+.search-bar-buttons button:hover {
+    color: white;
+    background-color: #334B6A;
+}
+
+#btn-consultar {
+    color: white;
+    background-color: #334B6A;
+}
+
+#btn-consultar:hover {
+    color: #334B6A;
+    background-color: white;
+}

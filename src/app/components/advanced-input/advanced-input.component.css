@@ -1,0 +1,32 @@
+
+label{
+    width: 100%;
+    white-space: nowrap;    
+    margin: 4px 0;        
+}
+input{
+    border-radius: 5px;
+    border-color: #A9A9A9;    
+    height: 3.4vh;
+    width: 30vw;    
+    border-style:solid;
+}
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin:8px 0;    
+}
+.numeroDocumento{
+    width: 16vw;
+}
+.oabNumber{
+    width: 9vw;        
+
+}
+.oabWord{
+    width: 4vw;
+}
+.label-oabWord{
+    visibility: hidden;
+}
+

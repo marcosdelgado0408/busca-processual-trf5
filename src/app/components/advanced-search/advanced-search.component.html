@@ -1,0 +1,37 @@
+<main>
+    <div class="home">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active" >Tela Inicial</a>
+        <div class="divider-home"></div>
+        <span>Pesquisa Avançada</span>
+    </div>
+    <form>
+        <app-advanced-input-select label="Origem" labelSelectName="origem" selectName="origem" selectId="1" [options]="optionsOrigem">
+        </app-advanced-input-select>
+        <app-advanced-input inputName="numeroDocumento" label="CPF/CNPJ" type="numeroDocumento" maskValue="000.000.000-000"></app-advanced-input>
+        <app-advanced-input inputName="numeroProcesso" label="Número do Processo" type="text" maskValue="0000000-00.0000.0.00.0000"></app-advanced-input>
+        <app-advanced-input inputName="nomeParte" label="Nome da parte" type="text"></app-advanced-input>
+        <app-advanced-input inputName="nomeAdvogado" label="Nome do advogado" type="text"></app-advanced-input>
+        <app-advanced-input inputName="classeJudicial" label="Classe judicial" type="text"></app-advanced-input>
+        <div class="oab">
+          <app-advanced-input inputName="oabNumber" label="OAB (000000 A UF)" type="text" maskValue="000000"></app-advanced-input>
+          <div class="divider-oab"></div>
+          <app-advanced-input inputName="oabWord" label="A" type="text"></app-advanced-input>
+          <div class="divider-oab"></div>
+          <app-advanced-input-select labelSelectName="oabUf" selectName="oab" selectId="2" [options]="optionsUf">
+          </app-advanced-input-select>
+        </div>
+        <div class="btn-form">
+          <button type="button" class="btn-clear" (click)="clearForm()">Limpar</button>
+          <button class="btn-search" type="button" (click)="searchAdvanced()">Consultar</button>
+        </div>
+      </form>
+      <div class="progress-bar-container" *ngIf="showProgress === true">
+        <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+    </div>
+    <div class="erro">
+      <div #erroNenhumProcessoEncontrado *ngIf="nenhumProcessoEncontrado === true">
+          <p>Nenhum processo encontrado</p>
+          <button (click)="fecharDiv()">Fechar x</button>
+      </div>
+    </div>
+</main>

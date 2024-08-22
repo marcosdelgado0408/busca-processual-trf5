@@ -1,0 +1,137 @@
+
+<div class="dados-do-processo">
+    <h2>Dados do processo</h2>
+
+    <div class="dados-primeira-linha">
+
+        <div>
+            <b>Número do Processo</b>
+            <p>{{processo?.numero}}</p>
+        </div>
+
+        <div>
+            <b>Data de Distribuição</b>
+            <p>25/03/2024</p>
+        </div>
+
+        <div>
+            <b>Classe Judicial</b>
+            <p>{{processo.classeJudicial.descricao}}</p>
+        </div>
+
+        <div>
+            <b>Assunto</b>
+            <p>{{processo.assuntos[0]}}</p>
+        </div>
+
+    </div>
+
+    <div class="dados-segunda-linha">
+
+        <div>
+            <b>Jurisdição</b>
+            <p>{{processo.orgao}}</p>
+        </div>
+
+        <div>
+            <b>Orgão Julgador</b>
+            <p>{{processo.orgaoJulgador.descricao}}</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="polo-ativo">
+    <h2>Polo Ativo</h2>
+    <div *ngFor="let nome of getGroupedPartesKeys()">
+        <div *ngIf="groupedPartes[nome][0].tipoPolo === 'A'">
+            <div class="parte-nome" (click)="toggleGroup(nome)">
+                <b>{{ nome }}</b> ({{ groupedPartes[nome].length }})
+            </div>
+            <div *ngIf="isGroupVisible(nome)" class="partes-detalhes">
+
+                <table>
+                    <tr>
+                        <th>Participante</th>
+                        <th>Situação</th>
+                    </tr>
+                    <tr *ngFor="let parte of groupedPartes[nome]">
+                        <td>{{ parte.nome }} ({{parte.numeroDocumento}})</td>
+                        <td>Ativo</td>                
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="polo-passivo">
+    <h2>Polo Passivo</h2>
+    <div *ngFor="let nome of getGroupedPartesKeys()">
+        <div *ngIf="groupedPartes[nome][0].tipoPolo === 'P'">
+            <div class="parte-nome" (click)="toggleGroup(nome)">
+                <b>{{ nome }}</b> ({{ groupedPartes[nome].length }})
+            </div>
+            <div *ngIf="isGroupVisible(nome)" class="partes-detalhes">
+
+                <table>
+                    <tr>
+                        <th>Participante</th>
+                        <th>Situação</th>
+                    </tr>        
+                    <tr *ngFor="let parte of groupedPartes[nome]">
+                        <td>{{ parte.nome }} ({{parte.numeroDocumento}})</td>
+                        <td>Ativo</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="documentos">
+    <h2>Documentos juntados ao processo</h2>
+
+    <table>
+        <tr>
+            <th>Documentos</th>
+            <th>Certidão</th>
+        </tr>
+        <tr *ngFor="let documento of visibleDocumentos">
+            <td>{{documento.dataAssinatura | dateFormat}} - {{documento.tipo.descricao}}</td>
+            <td>
+                <a [href]="documento.url" target="_blank">
+                    <fa-icon [icon]="faFileAlt"></fa-icon>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Botão "Ver Mais" para documentos -->
+    <button id="ver-mais-documentos" *ngIf="documentos.length > 5" (click)="loadMoreDocuments()">Ver Mais</button>
+</div>
+
+<div class="movimentacao">
+    <h2>Movimentação do Processo</h2>
+
+    <table>
+        <tr>
+            <th>Movimentação</th>
+            <th>Documento</th>
+        </tr>
+
+        <tr *ngFor="let movimentacao of visibleMovimentacoes">
+            <td>{{movimentacao.data | dateFormat}} - {{movimentacao.descricao}}</td>
+        </tr>
+    </table>
+
+    <!-- Botão "Ver Mais" para movimentações -->
+    <button id="ver-mais-movimentacoes" *ngIf="processo.movimentacoes.length > 5" (click)="loadMoreMovimentacoes()">Ver Mais</button>
+</div>

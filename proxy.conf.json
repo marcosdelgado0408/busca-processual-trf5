@@ -1,0 +1,16 @@
+{
+  "/api": {
+    "target": "https://consultaprocessualapi.trf5.jus.br",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+
+  "/metrics": {
+    "target": "http://prometheus:9090",
+    "secure": false
+  }
+}
+

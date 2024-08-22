@@ -1,0 +1,11 @@
+<div class="input-wrapper">
+    <label class="label-{{inputName}}"[for]="inputName">{{ label }}</label>
+    <div class="input-content">
+        <input class="{{inputName}}"
+            [type]="type" 
+            [value]="value"
+            (input)="onInput($event)"
+            [mask]="maskValue"
+        />
+    </div>    
+</div>
