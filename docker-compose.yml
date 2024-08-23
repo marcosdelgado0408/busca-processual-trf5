@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   angular-app:
-    image: busca-processual-unificada-trf5:latest  # Nome da imagem
+    image: marcosdelgado0408/busca-processual-unificada-trf5:latest  # Nome da imagem
     build:
       context: .
       dockerfile: Dockerfile
